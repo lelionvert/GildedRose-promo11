@@ -38,4 +38,16 @@ public class Item {
     public void decreaseSellIn() {
         sellIn--;
     }
+
+    public boolean isAgedBrie() {
+        return name.equals("Aged Brie");
+    }
+
+    public boolean isBackstage() {
+        return name.equals("Backstage passes to a TAFKAL80ETC concert");
+    }
+
+    public boolean isSulfuras() {
+        return name.equals("Sulfuras, Hand of Ragnaros");
+    }
 }
