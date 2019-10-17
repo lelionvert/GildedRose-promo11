@@ -31,6 +31,10 @@ public class Item {
         }
     }
 
+    public void resetQuality() {
+        quality = 0;
+    }
+
     public void decreaseSellIn() {
         sellIn--;
     }

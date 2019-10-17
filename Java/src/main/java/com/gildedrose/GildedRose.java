@@ -39,7 +39,7 @@ class GildedRose {
                             items[i].decreaseQuality();
                         }
                     } else {
-                        items[i].quality = items[i].quality - items[i].quality;
+                        items[i].resetQuality();
                     }
                 } else {
                     items[i].increaseQuality();
