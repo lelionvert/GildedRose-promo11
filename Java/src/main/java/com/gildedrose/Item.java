@@ -2,20 +2,66 @@ package com.gildedrose;
 
 public class Item {
 
-    public String name;
+    private String name;
 
-    public int sellIn;
+    private int sellIn;
 
-    public int quality;
+    private int quality;
 
     public Item(String name, int sellIn, int quality) {
-        this.name = name;
-        this.sellIn = sellIn;
+        this.setName(name);
+        this.setSellIn(sellIn);
+        this.setQuality(quality);
+    }
+
+    @Override
+    public String toString() {
+        return this.getName() + ", " + this.getSellIn() + ", " + this.getQuality();
+    }
+
+    public int getQuality() {
+        return quality;
+    }
+
+    public void setQuality(int quality) {
         this.quality = quality;
     }
 
-   @Override
-   public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSellIn() {
+        return sellIn;
+    }
+
+    public void setSellIn(int sellIn) {
+        this.sellIn = sellIn;
+    }
+
+    void decrementQuality() {
+        this.quality--;
+    }
+
+    void incrementQuality() {
+        this.quality++;
+    }
+
+    void setQualityToZero() {
+        this.quality = 0;
+    }
+
+    void decrementSellIn() {
+        this.sellIn--;
+    }
+
+    void updateSellIn() {
+        if (!name.equals("Sulfuras, Hand of Ragnaros")) {
+            decrementSellIn();
+        }
     }
 }

@@ -48,13 +48,13 @@ public class GildedRoseTest {
             SoftAssertions assertions = new SoftAssertions();
 
             assertions.assertThat(app.items).extracting("name").containsExactly(
-                    Arrays.stream(legacy.items).map(item -> item.name).toArray()
+                    Arrays.stream(legacy.items).map(item -> item.getName()).toArray()
             );
             assertions.assertThat(app.items).extracting("sellIn").containsExactly(
-                    Arrays.stream(legacy.items).map(item -> item.sellIn).toArray()
+                    Arrays.stream(legacy.items).map(item -> item.getSellIn()).toArray()
             );
             assertions.assertThat(app.items).extracting("quality").containsExactly(
-                    Arrays.stream(legacy.items).map(item -> item.quality).toArray()
+                    Arrays.stream(legacy.items).map(item -> item.getQuality()).toArray()
             );
             assertions.assertAll();
         }
