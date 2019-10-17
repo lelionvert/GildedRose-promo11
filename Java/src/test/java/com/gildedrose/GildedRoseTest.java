@@ -73,4 +73,30 @@ public class GildedRoseTest {
         assertions.assertAll();
     }
 
+    @Test
+    public void items_state_after_two_days() {
+        app.updateQuality();
+        app.updateQuality();
+
+        SoftAssertions assertions = new SoftAssertions();
+
+        assertions.assertThat(app.items).extracting("name").containsExactly(
+                "+5 Dexterity Vest",
+                "Aged Brie",
+                "Elixir of the Mongoose",
+                "Sulfuras, Hand of Ragnaros",
+                "Sulfuras, Hand of Ragnaros",
+                "Backstage passes to a TAFKAL80ETC concert",
+                "Backstage passes to a TAFKAL80ETC concert",
+                "Backstage passes to a TAFKAL80ETC concert"
+        );
+        assertions.assertThat(app.items).extracting("sellIn").containsExactly(
+                8, 0, 3, 0, -1, 13, 8, 3
+        );
+        assertions.assertThat(app.items).extracting("quality").containsExactly(
+                18, 2, 5, 80, 80, 22, 50, 50
+        );
+        assertions.assertAll();
+    }
+
 }
